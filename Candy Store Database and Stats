@@ -1,0 +1,24 @@
+CREATE TABLE candy (ID INTEGER PRIMARY KEY,  BRAND TEXT, AISLE INTEGER, PRICE INTEGER);
+
+- created a candy store database to show what candy my store has, where it is located, and the price. 
+INSERT INTO candy VALUES (1, "Swedish Fish", 3, 3);
+INSERT INTO candy VALUES (2, "M&M'S", 3, 5);
+INSERT INTO candy VALUES (3, "Sour Patch Kids", 3, 2); 
+INSERT INTO candy VALUES (4, "Lolipops", 3, 2);
+INSERT INTO candy VALUES (5, "Tootsie Rolls", 3, 2);
+INSERT INTO candy VALUES (6, "Dum Dum's", 3, 2);
+INSERT INTO candy VALUES (7, "Snickers", 3, 2);
+INSERT INTO candy VALUES (8, "Kit Kat", 3, 3);
+INSERT INTO candy VALUES (9, "Twix", 3, 2);
+INSERT INTO candy VALUES (10, "Skittles", 3, 2);
+INSERT INTO candy VALUES (11, "Starburst", 3, 4);
+INSERT INTO candy VALUES (12, "Laffy Taffy", 3, 2);
+INSERT INTO candy VALUES (13, "Butterfinger", 3, 2);
+INSERT INTO candy VALUES (14, "Heath Bar", 3, 1);
+INSERT INTO candy VALUES (15, "Milky Way", 3, 4);
+
+- seperated all candy in store by aisle.
+SELECT * FROM candy ORDER BY aisle;
+
+- total profit from my candy store business.
+SELECT SUM(PRICE) FROM candy;
