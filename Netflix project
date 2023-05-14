@@ -1,0 +1,43 @@
+-- Example query (PostgreSQL)
+SELECT * FROM "CharlotteChaze/BreakIntoTech"."netflix_people";
+SELECT 
+people.show_id
+,people.director
+,titles.title
+,titles.type
+FROM "CharlotteChaze/BreakIntoTech"."netflix_people" people
+
+LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+ON people.show_id=titles.show_id
+
+#1. How many movies are there in the database?
+select count(*) 
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE type="Movie";
+##Here is where I created a database to show all movies in the "netflix_titles_info column. 
+
+#2. When was the most recent batch of tv shows and/or movies added to the database? 
+SELECT MAX(date(date added))
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+
+#3. List all the movies and tv shows in alphabetical order.
+SELECT title
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+ORDER BY title asc;
+
+#4. Who was the Director for the movie Bright Star? 
+SELECT director
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_peoples" people
+ON title.show_id, people.show_id
+WHERE titles.title="Bright Star";
+
+#5. What is the oldest movie in the database and what year was it made? 
+SELECT title, relase_year
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE type="Movie"
+ORDER BY release_year asc
+LIMIT 1;
+
+
+
